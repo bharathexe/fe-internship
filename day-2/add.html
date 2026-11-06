@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <h1>Calculator</h1>
+    <label>A</label>
+    <input type="number" ng-model="a" value={{a}}>
+    <br>
+    <br>
+    <label>B</label>
+    <input type="number" ng-model="b" value={{b}}>
+    
+    <h3>Sum: {{ a+b }}</h3>
+    <h3>Diff: {{ a-b }}</h3>
+    <h3>Prod: {{ a*b }}</h3>
+    <h3>Div: {{ a/b }}</h3>
+    <h3>Mod: {{ a%b }}</h3>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script>
+        const app = angular.module("myApp", []);
+        app.controller("myCtrl", ($scope)=>{
+            $scope.a = 0;
+            $scope.b = 0;
+        });
+    </script>
+</body>
+</html>

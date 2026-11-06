@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <h1>AngularJS Calculator</h1>
+    <hr>
+    Number 1:
+    <input type="number" ng-model="num1">
+    <br>
+    <br>
+    Number 2:
+    <input type="number" ng-model="num2">
+    <hr>
+    <div ng-if="num1 != null && num2 != null">
+        <h2>Addition: {{ num1+num2 }}</h2>
+        <h2>Subtraction: {{ num1-num2 }}</h2>
+        <h2>Multiplication: {{ num1*num2 }}</h2>
+        <div ng-if="num2 != 0 && num2 != null">
+            <h2>Division: {{ num1/num2 }}</h2>
+            <h2>Modulus:{{ num1%num2 }} </h2>
+        </div>
+        <div ng-if="num2 == 0">
+            <h3>Can't divide by 0</h3>
+        </div>
+    <script>
+        const app = angular.module("myApp", []);
+        app.controller("myCtrl", ($scope)=>{});
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+  "students": [
+    {
+      "id": "1793959458950",
+      "name": "Bharath 2",
+      "email": "bharath@gmail.com",
+      "course": "AngularJS",
+      "age": 20
+    },
+    {
+      "id": "1793959459487",
+      "name": "Bharath",
+      "email": "bharath@gmail.com",
+      "course": "AngularJS",
+      "age": 20
+    },
+    {
+      "id": "1793959459942",
+      "name": "Bharath",
+      "email": "bharath@gmail.com",
+      "course": "AngularJS",
+      "age": 20
+    },
+    {
+      "name": "Bharath Kesari",
+      "email": "bharathkesari993@gmail.com",
+      "age": 20,
+      "course": "AngularJS",
+      "studentId": 1793960178521,
+      "id": "QWzOZQAIvvc"
+    },
+    {
+      "name": "YetAnotherStudent",
+      "email": "yetanother@student.com",
+      "age": 69,
+      "course": "AngularJS",
+      "studentId": 1793960442975,
+      "id": "i4Jggl_-QWQ"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

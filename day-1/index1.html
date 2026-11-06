@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body style="font-family: Geist Mono;" ng-app="myApp">
+	<div ng-controller="StudentController">
+		<h2>Student Details</h2>
+		<p>Name: {{studentName}}</p>
+		<p>Age: {{age}}</p>
+		<p>College: {{college}}</p>
+		<p>Marks: {{marks}}</p>
+		<button ng-click="showMessage('Rahul')">Rahul</button>
+		<button ng-click="showMessage('Bharath')">Bharath</button>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+	<script>
+		const app = angular.module("myApp", []);
+		app.controller("StudentController", ($scope) => {
+			$scope.studentName = "Bharath";
+			$scope.age = 20;
+			$scope.college = "MITM";
+			$scope.marks = 39;
+			$scope.showMessage = function (name){
+				alert("Welcome " + name);
+			}
+		});
+	</script>
+</body>
+</html>

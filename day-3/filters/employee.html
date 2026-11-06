@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+	<div ng-repeat="e in employees track by $index">
+		<h2>Name: {{e.name}}</h2>
+		<p>ID: {{e.id}}</p>
+		<p>Role: {{e.role}}</p>
+		<p>Count: {{$index + 1}}</p>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+	<script>
+		const app = angular.module("myApp", []);
+		app.controller("myCtrl", ($scope) => {
+			$scope.employees = [
+				{ name: "Bharath 12", id: 1, role: "Student" },
+				{ name: "bharath 67", id: 2, role: "Student" },
+				{ name: "Bharath 69", id: 3, role: "Student" }
+			];
+		});
+	</script>
+</body>
+</html>

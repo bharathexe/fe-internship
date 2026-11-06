@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management System</title>
+  <style>
+    td{
+      border: 1px solid;
+      padding: 5px 10px;
+    }
+    thead{
+      font-weight: 500;
+    }
+    thead td {
+      background-color: powderblue;
+    }
+    input{
+      width: 20vw;
+    }
+  </style>
+</head>
+<body ng-app="studentApp" style="font-family: system-ui;" ng-controller="StudentController">
+  <h1>Student Management System</h1>
+  <label for="">Search</label>
+  <input ng-model="searchText" value={{searchText}} placeholder="Search by ID, Name or anything" type="text">
+  <br>
+  <br>
+  <table>
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Course</td>
+        <td>Fee</td>
+        <td>Joined</td>
+        <td>Uppercase</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="student in students | filter:searchText">
+        <td>{{student.id}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.course}}</td>
+        <td>{{student.fee | currency: "₹"}}</td>
+        <td>{{student.joined | date: "dd-MM-yyyy"}}</td>
+        <td>{{student.name | upperCustom}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Total Students: {{totalStudents}}</h3>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

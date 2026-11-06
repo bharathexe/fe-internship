@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTTP AngularJS</title>
+  <style>
+    *{ font-family: "Inter"; }
+    td, th{
+      border: 1px solid;
+      padding: 5px 10px;
+    }
+    thead{
+      font-weight: 500;
+    }
+    thead th {
+      background-color: powderblue;
+    }
+  </style>
+</head>
+<body ng-app="myApp" ng-controller="EmployeeController">
+  <h2>Employee List</h2>
+  <button ng-click="loadEmployees()">Load Employees</button>
+  <button ng-click="clear()">Clear</button>
+  <h3 ng-hide="employees.length != 0">No Employees in here</h3>
+  <h3 ng-show="error">Some Error Occurred</h3>
+  <h3 ng-show="loading">Loading...</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="e in employees track by $index">
+        <td>{{e.id}}</td>
+        <td>{{e.name}}</td>
+        <td>{{e.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Employee Count: {{employees.length}}</h3>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+  <script>
+    const app = angular.module("myApp", []);
+    app.controller("EmployeeController", ($scope, $http)=>{
+      $scope.loading = false;
+      $scope.error = false;
+      
+      $scope.employees = [
+        { name: "Bharath", id: 101, email: "bharath@mail" },
+        { name: "MaxVer", id: 1, email: "verstappen@mail" }
+      ];
+
+      $scope.clear = function (){
+        $scope.employees = [];
+      }
+
+      $scope.loadEmployees = function (){
+        $scope.loading = true;
+        $http.get("https://jsonplaceholder.typicode.com/users")
+        .then(response => $scope.employees = response.data)
+        .catch(error=> $scope.error = true)
+        .finally(() => $scope.loading = false);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS</title>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+    <h1>Welcome to AngularJS</h1>
+    <p>Name: {{name}}</p>
+    <p ng-model="age">Age: {{age}}</p>
+    <p>City: {{city}}</p>
+
+    <input type="text" value={{age}} ng-model="age">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script src="./ang.js"></script>
+</body>
+</html>

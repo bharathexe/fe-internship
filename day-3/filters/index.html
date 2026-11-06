@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body style="font-family: Geist Mono;" ng-app="myApp">
+	<h1>Angular Filters</h1>
+    <h3>1. Uppercase filter</h3>
+    <p>{{"angularjs training" | uppercase}}</p>
+    <h3>2. Lowercase filter</h3>
+    <p>{{"ANGULARJS TRAINING" | lowercase}}</p>
+    <h3>3. Currency filter</h3>
+    <p>{{ 340944 | currency }}</p>
+    <p>{{ 340564654654944 | currency:"😂" }}</p>
+    <h3>4. Date Filter</h3>
+    <p>{{ today | date:"dd-MM-yyyy" }}</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+    <script>
+        const app = angular.module("myApp", []);
+        app.controller("myCtrl", ($scope)=>{
+          $scope.today = new Date(2020, 10, 1);
+        });
+    </script>
+</body>
+</html>
